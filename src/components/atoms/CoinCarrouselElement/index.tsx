@@ -8,16 +8,16 @@ interface ElementProps {
   data: CryptoCoin;
 }
 
-export function CoinCarrouselElement(props: ElementProps) {
-  const ChangeMoney = formatNumber(props.data.changePercent24Hr);
+export function CoinCarouselElement(props: ElementProps) {
+  const ChangeMoney = 5
   const isPositive = Number(ChangeMoney) >= 0;
 
   return (
-    <div key={props.data.symbol} className={styles.element}>
-      <span className={styles.symbol}>{props.data.symbol}</span>
+    <div key={props.data.asset_id} className={styles.element}>
+      <span className={styles.symbol}>{props.data.asset_id}</span>
 
       <span className={styles.price}>
-        R$ {formatNumber(props.data.priceUsd)}
+        R$ {props.data?.price_usd}
       </span>
       <span
         className={stylesEntry([

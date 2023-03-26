@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { Button } from "@/components/atoms/Button";
-import { CoinCarrousel } from "@/components/molecules/CoinCarrousel";
+import { CoinCarousel } from "@/components/molecules/CoinCarrousel";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { CryptoCoin } from "@/services/cryptocoin";
 import { useRouter } from "next/router";
@@ -58,7 +58,7 @@ export function NavMenu(props: Props) {
         <div className={styles.right_wrapper}>
           {isDesktop ? (
             <div className={styles.timeline_constraint}>
-              <CoinCarrousel coins={props.blockchains} />
+              <CoinCarousel coins={props.blockchains} />
             </div>
           ) : undefined}
           <div className={styles.buttons_container}>
@@ -75,7 +75,7 @@ export function NavMenu(props: Props) {
       <div className={styles.bottom}>
       {!isDesktop ? (
         <div className={styles.timeline_constraint}>
-          <CoinCarrousel coins={props.blockchains} />
+          <CoinCarousel coins={props.blockchains} />
         </div>
       ) : undefined}
       </div>

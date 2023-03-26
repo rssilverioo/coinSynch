@@ -10,7 +10,7 @@ interface Props {
 
 export function TopCryptos(props: Props) {
   const [isSample, setIsSample] = useState(true);
-	const sample = props.blockchains.slice(0, 5)
+	const sample = props.blockchains && props.blockchains.slice(0, 5)
 
   return (
     <section id="top-cryptos" className={styles.background}>
