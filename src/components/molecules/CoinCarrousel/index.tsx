@@ -1,5 +1,7 @@
+import { getCryptos } from '@/api/cryptoApi';
 import { CoinCarrouselElement } from '@/components/atoms/CoinCarrouselElement';
 import { Cryptocoins } from '@/services/cryptocoins';
+import { useEffect, useState } from 'react';
 
 import styles from './styles.module.scss';
 
@@ -8,20 +10,38 @@ interface Props {
 }
 
 export function CoinCarrousel(props: Props) {
+  const [cryptos, setCryptos] = useState(props.coins);
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getCryptos();
+      setCryptos(data);
+    }
+    fetchData();
+  }, []);
+
+
   return (
    <div className={styles.background}>
     <div className={styles.wrapper}>
           <div className={styles.slider}>
-            {Array.isArray(props.coins) && props.coins?.map((coin) => (
-              <CoinCarrouselElement key={coin.asset_id} data={coin} />
+            {cryptos?.map((crypto) => (
+              <CoinCarrouselElement key={crypto.asset_id} data={crypto}/>
             ))}
-            {Array.isArray(props.coins) && props.coins?.map((coin) => (
-              <CoinCarrouselElement key={coin.asset_id + ':)'} data={coin} />
-            ))}
+              {cryptos?.map((crypto) => (
+                <CoinCarrouselElement key={crypto.asset_id + ':)'} data={crypto} />
+              ))}
           </div>
         </div>
    </div>
   );
 }
 
-
+export async function getStaticProps() {
+  const data = await getCryptos();
+  return {
+    props: {
+      cryptos: data,
+    },
+  };
+}

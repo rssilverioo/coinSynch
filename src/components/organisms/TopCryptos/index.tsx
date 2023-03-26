@@ -17,7 +17,7 @@ export function TopCryptos(props: Props) {
       <div className={styles.content}>
         <h3>Top Cryptos</h3>
 
-        <CryptoTable blockchains={isSample ? sample : props.blockchains} />
+        <CryptoTable topcoins={isSample ? sample : props.blockchains} />
 				<Button
 					design="ghost"
 					className={styles.custom_btn}

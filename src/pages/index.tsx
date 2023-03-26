@@ -29,7 +29,7 @@ export default function HomeComponent(props: Props) {
   </Head>
     <main className={styles.main}>
       <Header assets={props.data} />
-      <section className={styles.Wave}></section>
+      <section className={styles.wave}></section>
       <AboutUs />
       <TopCryptos blockchains={props.data} />
       <NewsLetter />
@@ -39,20 +39,3 @@ export default function HomeComponent(props: Props) {
 
   );
 }
-
-export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const headers = {
-    'X-CoinAPI-Key': 'E687BA43-61A4-4909-A613-A3147AF94732',
-  };
-  const response = await axios.get<Cryptocoins[]>('https://rest.coinapi.io/v1/assets', {
-    headers,
-  });
-  const data = response.data;
-  data.length = 10
-
-  return {
-    props: {
-      data,
-    },
-  };
-};

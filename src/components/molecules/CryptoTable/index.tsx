@@ -9,18 +9,34 @@ import styles from './styles.module.scss';
 import { formatNumber } from '@/utils/moneyFormat';
 import { Button } from '../../atoms/Button';
 import { CurrencyChange } from '@/components/atoms/CurrencyChange';
+import { useEffect, useState } from 'react';
+import { getCryptos } from '@/api/cryptoApi';
 
 interface Props {
-  blockchains: Cryptocoins[];
+  topcoins: Cryptocoins[];
 }
 
 export function CryptoTable(props: Props) {
+  const [cryptos, setCryptos] = useState<Cryptocoins[]>([]);
+
+  useEffect(() => {
+    async function fetchCryptos() {
+      const topCryptos = await getCryptos();
+      setCryptos(topCryptos);
+    }
+    fetchCryptos();
+  }, []);
+
+
+
   const table = useReactTable({
-    data: props.blockchains,
+    data: cryptos,
     columns: [
       {
 				header: "#",
-				cell: (change) => <span>{change.row.index >= 10 ? '' : 0 }{change.row.index +1}</span>,
+				// cell: (change) => <span>{change.row.index >= 9 ? '' : 0 }{change.row.index +1}</span>,
+				cell: (change) => <span>{change.row.index >= 9 ? '' : 0 }{change.row.index +1}</span>,
+
 			},
       {
         header: 'Crypto',
@@ -87,7 +103,7 @@ export function CryptoTable(props: Props) {
       ))}
     </thead>
     <tbody>
-      {props.blockchains && table.getRowModel().rows.map((row) => (
+      {props.topcoins && table.getRowModel().rows.map((row) => (
         <tr key={row.id}>
           {row.getVisibleCells().map((cell) => (
             <td key={cell.id}>
