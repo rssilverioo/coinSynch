@@ -1,15 +1,15 @@
-import { CryptoCoin } from '@/services/cryptocoin';
+import { Cryptocoins } from '@/services/cryptocoins';
 import { formatNumber } from '@/utils/moneyFormat';
 import { stylesEntry } from '@/utils/styles';
 import styles from './styles.module.scss';
 
 
 interface ElementProps {
-  data: CryptoCoin;
+  data: Cryptocoins;
 }
 
-export function CoinCarouselElement(props: ElementProps) {
-  const ChangeMoney = 5
+export function CoinCarrouselElement(props: ElementProps) {
+  const ChangeMoney = formatNumber(props.data.volume_1hrs_usd);
   const isPositive = Number(ChangeMoney) >= 0;
 
   return (
@@ -17,7 +17,7 @@ export function CoinCarouselElement(props: ElementProps) {
       <span className={styles.symbol}>{props.data.asset_id}</span>
 
       <span className={styles.price}>
-        R$ {props.data?.price_usd}
+        R$ {formatNumber(props.data.price_usd)}
       </span>
       <span
         className={stylesEntry([

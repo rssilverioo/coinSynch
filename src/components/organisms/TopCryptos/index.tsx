@@ -1,16 +1,16 @@
-import { CryptoCoin } from '@/services/cryptocoin';
+import { Cryptocoins } from '@/services/cryptocoins';
 import { useState } from "react";
 import { CryptoTable } from "../../molecules/CryptoTable";
 import { Button } from "../../atoms/Button";
 import styles from './styles.module.scss';
 
 interface Props {
-  blockchains: CryptoCoin[];
+  blockchains: Cryptocoins[];
 }
 
 export function TopCryptos(props: Props) {
   const [isSample, setIsSample] = useState(true);
-	const sample = props.blockchains && props.blockchains.slice(0, 5)
+	const sample = Array.isArray(props.blockchains) ? props.blockchains.slice(0, 5) : [];
 
   return (
     <section id="top-cryptos" className={styles.background}>

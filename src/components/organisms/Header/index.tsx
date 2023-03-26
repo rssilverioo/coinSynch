@@ -1,7 +1,7 @@
 import { useRef } from "react";
 
 import { CarrouselHero } from "@/components/molecules/Hero";
-import { CryptoCoin } from "@/services/cryptocoin";
+import { Cryptocoins } from "@/services/cryptocoins";
 import { NavMenu } from "@/components/molecules/MenuNav";
 import { SignInForm } from "@/components/molecules/forms/SignIn";
 import { SignUpForm } from "@/components/molecules/forms/SignUp";
@@ -9,7 +9,7 @@ import { Modal, ModalHandler } from "@/components/molecules/modals/Modal";
 
 
 interface Props {
-  assets: CryptoCoin[];
+  assets: Cryptocoins[];
 }
 
 

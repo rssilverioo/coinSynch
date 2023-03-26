@@ -1,22 +1,22 @@
-import { CoinCarouselElement } from '@/components/atoms/CoinCarrouselElement';
-import { CryptoCoin } from '@/services/cryptocoin';
+import { CoinCarrouselElement } from '@/components/atoms/CoinCarrouselElement';
+import { Cryptocoins } from '@/services/cryptocoins';
 
 import styles from './styles.module.scss';
 
 interface Props {
-  coins: CryptoCoin[];
+  coins: Cryptocoins[];
 }
 
-export function CoinCarousel(props: Props) {
+export function CoinCarrousel(props: Props) {
   return (
    <div className={styles.background}>
     <div className={styles.wrapper}>
           <div className={styles.slider}>
-            {props.coins?.map((coin) => (
-              <CoinCarouselElement key={coin.asset_id} data={coin} />
+            {Array.isArray(props.coins) && props.coins?.map((coin) => (
+              <CoinCarrouselElement key={coin.asset_id} data={coin} />
             ))}
-            {props.coins?.map((coin) => (
-              <CoinCarouselElement key={coin.asset_id + ':)'} data={coin} />
+            {Array.isArray(props.coins) && props.coins?.map((coin) => (
+              <CoinCarrouselElement key={coin.asset_id + ':)'} data={coin} />
             ))}
           </div>
         </div>

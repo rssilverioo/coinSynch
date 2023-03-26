@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
-import axios, { AxiosResponse } from 'axios';
+import axios from "axios";
 import { Footer } from "@/components/organisms/Footer";
-import { CryptoCoin, CryptoCoins } from "@/services/cryptocoin";
+import { Cryptocoins} from "@/services/cryptocoins";
 import { TopCryptos } from "@/components/organisms/TopCryptos";
 import { AboutUs } from "@/components//organisms/AboutUs";
 import styles from "./Home.module.scss";
@@ -12,7 +12,7 @@ import { Header } from "@/components/organisms/Header";
 
 
 interface Props {
-  data: CryptoCoin[];
+  data: Cryptocoins[];
 }
 
 export default function HomeComponent(props: Props) {
@@ -41,23 +41,18 @@ export default function HomeComponent(props: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
-
-const headers = {
-  'X-CoinAPI-Key': 'E687BA43-61A4-4909-A613-A3147AF94732',
-};
-
-const response: AxiosResponse<CryptoCoin[]> = await axios.get(
-  'https://rest.coinapi.io/v1/assets',
-  {
+  const headers = {
+    'X-CoinAPI-Key': 'E687BA43-61A4-4909-A613-A3147AF94732',
+  };
+  const response = await axios.get<Cryptocoins[]>('https://rest.coinapi.io/v1/assets', {
     headers,
-  }
-);
+  });
+  const data = response.data;
+  data.length = 10
 
-const data = response.data;
-
-return {
-  props: {
-    data,
-  },
-};
+  return {
+    props: {
+      data,
+    },
+  };
 };

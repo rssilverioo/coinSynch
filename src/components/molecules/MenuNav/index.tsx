@@ -1,16 +1,16 @@
 import Image from "next/image";
 
 import { Button } from "@/components/atoms/Button";
-import { CoinCarousel } from "@/components/molecules/CoinCarrousel";
+import { CoinCarrousel } from "@/components/molecules/CoinCarrousel";
 import { useWindowSize } from "@/hooks/useWindowSize";
-import { CryptoCoin } from "@/services/cryptocoin";
+import { Blockchain } from "@/services/cryptocoins";
 import { useRouter } from "next/router";
 
 
 import styles from "./styles.module.scss";
 
 interface Props {
-  blockchains: CryptoCoin[];
+  blockchains: Blockchain[];
   onSignInClick: () => void;
   onSignUpClick: () => void;
 }
@@ -35,8 +35,7 @@ export function NavMenu(props: Props) {
 
 
   return (
-    <>
-      <div className={styles.background}>
+    <div className={styles.background}>
       <nav className={styles.wrapper}>
         <div className={styles.left_wrapper}>
           <div className={styles.logo_container}>
@@ -58,7 +57,7 @@ export function NavMenu(props: Props) {
         <div className={styles.right_wrapper}>
           {isDesktop ? (
             <div className={styles.timeline_constraint}>
-              <CoinCarousel coins={props.blockchains} />
+              <CoinCarrousel coins={props.blockchains} />
             </div>
           ) : undefined}
           <div className={styles.buttons_container}>
@@ -70,17 +69,12 @@ export function NavMenu(props: Props) {
             </Button>
           </div>
         </div>
-
       </nav>
-      <div className={styles.bottom}>
       {!isDesktop ? (
         <div className={styles.timeline_constraint}>
-          <CoinCarousel coins={props.blockchains} />
+          <CoinCarrousel coins={props.blockchains} />
         </div>
       ) : undefined}
-      </div>
     </div>
-
-    </>
   );
 }

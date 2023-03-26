@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 
 interface Props extends HTMLAttributes<HTMLSpanElement> {
   value: number;
-  percent?: boolean;
+  hasPercent?: boolean;
 }
 
 export function CurrencyChange(props: Props) {
@@ -22,7 +22,7 @@ export function CurrencyChange(props: Props) {
       ])}
     >
       {isNegative ? format : `+${format}`}
-      {props.percent ? "%" : undefined}
+      {props.hasPercent ? "%" : undefined}
     </span>
   );
 }
