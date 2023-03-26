@@ -43,21 +43,25 @@ export default function HomeComponent(props: Props) {
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
 
 
-  const COINSAPI_URI = "https://api.coincap.io/v2"
+
   const CONFIG = {
     method: 'GET',
-    header: {
-      // "X-CoinAPI-Key": "E687BA43-61A4-4909-A613-A3147AF94732",
-      "Content-Type": "application/json; charset=utf-8"
-    }
+    hostname: "rest.coinapi.io",
+    path: "/v1/symbols",
+    headers: {'X-CoinAPI-Key': 'E687BA43-61A4-4909-A613-A3147AF94732'}
+    // header: {
+    //   "X-CoinAPI-Key": "E687BA43-61A4-4909-A613-A3147AF94732",
+    //   "Content-Type": "application/json; charset=utf-8"
+    // }
   }
-  const response = await axios.get<CryptoCoins>(`${COINSAPI_URI}/assets`, CONFIG);
+  const response = await axios<CryptoCoins>(CONFIG);
   const data = response.data.data;
-  data.length = 20;
+  data.length = 10;
+  console.log("api aqui", response)
   return {
     props: {
       assets: response.data.data,
     },
-    revalidate: 60,
+    revalidate: 60 * 60 * 24, // 1 day
   };
 };

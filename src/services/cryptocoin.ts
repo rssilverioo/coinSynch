@@ -6,17 +6,32 @@ export interface CryptoCoins {
 }
 
 export interface CryptoCoin {
-	id: string;
-	rank: string;
-	symbol: string;
-	name: string;
-	supply: string;
-	maxSupply: string;
-	marketCapUsd: string;
-	volumeUsd24Hr: string;
-	priceUsd: string;
-	changePercent24Hr: string;
-	vwap24Hr: string;
-	explorer: string;
+  symbol_id:                   string;
+  exchange_id:                 string;
+  symbol_type:                 string;
+  asset_id_base:               string;
+  asset_id_quote:              string;
+  asset_id_unit?:              string;
+  future_contract_unit?:       number;
+  future_contract_unit_asset?: string;
+  data_start:                  Date;
+  data_end:                    Date;
+  data_quote_start:            Date;
+  data_quote_end:              Date;
+  data_orderbook_start:        Date;
+  data_orderbook_end:          Date;
+  data_trade_start:            Date;
+  data_trade_end:              Date;
+  volume_1hrs:                 number;
+  volume_1hrs_usd:             number;
+  volume_1day:                 number;
+  volume_1day_usd:             number;
+  volume_1mth:                 number;
+  volume_1mth_usd:             number;
+  price?:                      number;
+  symbol_id_exchange:          string;
+  asset_id_base_exchange:      string;
+  asset_id_quote_exchange:     string;
+  price_precision:             number;
+  size_precision:              number;
 }
-
