@@ -45,7 +45,6 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: $color-tertiary-700;
   }
 }
 .chart {
@@ -53,4 +52,13 @@
   max-width: 164px;
   height: 112px;
 
+}
+
+
+.positive {
+  color: $color-tertiary-700;
+}
+
+.negative {
+  color: $color-quaternary-700;
 }

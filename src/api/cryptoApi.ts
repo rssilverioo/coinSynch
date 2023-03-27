@@ -17,7 +17,7 @@ export async function getCryptos(): Promise<Cryptocoins[]> {
   const response = await api.get<Cryptocoins[]>('v1/assets', {
     params: {
       type: 'BTC,ETH,LTC', // list of desired cryptocurrencies
-
+      limit: 10
     },
 
   });
