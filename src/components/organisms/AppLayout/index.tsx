@@ -23,7 +23,7 @@ export function AppLayout(props: Props) {
 
           <div className={styles.right_wrapper}>
             <Image
-              src="https://api.lorem.space/image/face?w=32&h=32"
+              src="https://api.lorem.space/image/face?w=32&h=32&hash=8B7BCDC2"
               alt="Your image"
               width={32}
               height={32}

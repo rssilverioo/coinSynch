@@ -6,21 +6,61 @@
   background-color: $color-white;
 };
 .content {
-  display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  h1 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 32px;
+  }
+
+  span {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+  }
 }
 .header {
   width: 100%;
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 24px 24px 24px 24px;
+  padding: 24px;
 
+
+
+}
+
+.title {
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  span {
+    font-weight: 700;
+    font-size: 24px;
+    line-height:32px;
+    color: $color-text;
+  }
+}
+
+.btn {
+align-items: center;
+width: 100%;
+display: flex;
+}
+.btn_icon {
+  margin-top: 5px;
+  font-weight: 700;
 }
 .hr {
   width: 100%;
   border-color: $color-secondary-200;
   opacity: 0.1;
 }
+
