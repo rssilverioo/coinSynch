@@ -7,12 +7,13 @@ import { Cryptocoins } from "@/services/cryptocoins";
 import { Modal, ModalHandler } from "@/components/molecules/modals/Modal";
 import { useRef } from "react";
 import Head from "next/head";
-import { CryptoForm } from "@/components/molecules/forms/CryptoForm/AddCrypto";
+import { CryptoForm } from "@/components/molecules/forms/CryptoForm";
 
 
 interface Props {
   cryptoCoins: Cryptocoins[];
   onSubmit: (formData: FormData) => void;
+
 }
 
 export default function Dashboard(props: Props) {
@@ -35,7 +36,7 @@ export default function Dashboard(props: Props) {
 
       </Head>
          <Modal ref={modalHandlerAddCrypto}>
-            <CryptoForm onSubmit={props.onSubmit} cryptoAdd={props.cryptoCoins} onNeedCrypto={openAddCrypto}/>
+            <CryptoForm   cryptoAdd={props.cryptoCoins} onSubmit={props.onSubmit} onNeedCrypto={openAddCrypto}/>
         </Modal>
 			<div className={styles.bg}>
 				<main className={styles.page_content}>
