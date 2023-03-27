@@ -3,14 +3,14 @@ import Image from "next/image";
 import { Button } from "@/components/atoms/Button";
 import { CoinCarrousel } from "@/components/molecules/CoinCarrousel";
 import { useWindowSize } from "@/hooks/useWindowSize";
-import { Blockchain } from "@/services/cryptocoins";
+import { Cryptocoins } from "@/services/cryptocoins";
 import { useRouter } from "next/router";
 
 
 import styles from "./styles.module.scss";
 
 interface Props {
-  blockchains: Blockchain[];
+  blockchains: Cryptocoins[];
   onSignInClick: () => void;
   onSignUpClick: () => void;
 }

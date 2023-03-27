@@ -3,9 +3,9 @@ import styles from './styles.module.scss';
 
 interface Props {
   img: string;
+  text: string;
   subtitle: string;
   title: string;
-  text: string;
 }
 
 export function CardAboutUs(props: Props) {

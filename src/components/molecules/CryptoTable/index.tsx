@@ -17,14 +17,14 @@ interface Props {
 }
 
 export function CryptoTable(props: Props) {
-  const [cryptos, setCryptos] = useState<Cryptocoins[]>([]);
+  const [cryptos, setCryptos] = useState(props.topcoins);
 
   useEffect(() => {
-    async function fetchCryptos() {
-      const topCryptos = await getCryptos();
-      setCryptos(topCryptos);
+    async function fetchData() {
+      const data = await getCryptos();
+      setCryptos(data);
     }
-    fetchCryptos();
+    fetchData();
   }, []);
 
 
@@ -42,18 +42,18 @@ export function CryptoTable(props: Props) {
         header: 'Crypto',
         cell: (change) => {
 					const row = change.row.original;
-					const parsedCoinName = row.name.toLowerCase().replace(" ", "-");
+					const parsedCoinName = row && row.name ? row.name.toLowerCase().replace(" ", "-") : '';
 					return (
 						<span className={styles.coin_name_symbol}>
 							<Image
-								src={`https://cryptologos.cc/logos/${parsedCoinName}-${row.asset_id.toLowerCase()}-logo.svg`}
+								src={`https://cryptologos.cc/logos/${parsedCoinName}-${row?.asset_id.toLowerCase()}-logo.svg`}
 								width={32}
 								height={32}
-								alt={row.name}
+								alt={row?.name}
 							/>
 							<div>
-								<span>{row.name}</span>
-								<span>{row.asset_id}</span>
+								<span>{row?.name}</span>
+								<span>{row?.asset_id}</span>
 							</div>
 						</span>
 					);
@@ -61,13 +61,13 @@ export function CryptoTable(props: Props) {
       },
       {
         header: 'Price',
-        accessorFn: (row) => formatNumber(Number(row.price_usd), true),
+        accessorFn: (row) => formatNumber(Number(row?.price_usd), true),
       },
       {
         header: 'Change',
         cell: (change) => (
 					<CurrencyChange
-						value={Number(change.row.original.volume_1hrs_usd)}
+						value={Number(change.row?.original?.volume_1hrs_usd)}
 						hasPercent
 					/>
 				),
@@ -103,8 +103,8 @@ export function CryptoTable(props: Props) {
       ))}
     </thead>
     <tbody>
-      {props.topcoins && table.getRowModel().rows.map((row) => (
-        <tr key={row.id}>
+      {props.topcoins && table.getRowModel().rows?.map((row) => (
+        <tr key={row?.id}>
           {row.getVisibleCells().map((cell) => (
             <td key={cell.id}>
               {flexRender(cell.column.columnDef.cell, cell.getContext())}

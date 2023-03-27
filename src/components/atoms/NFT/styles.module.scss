@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  max-width: 280px;
+  background-color: $color-white;
+  border-radius: 8px;
+  height: 112px;
+
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+
+}
+
+.content {
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+
+}
+.text_content {
+  justify-content: center;
+  gap: 12px;
+  padding-left:10px;
+  padding-top:16px;
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 16px;
+    color: $color-text;
+    margin-bottom: 5px;
+    white-space: nowrap
+
+  }
+
+  span {
+    font-size: 11px;
+    font-weight: 400;
+    color: $color-secondary-500;
+    line-height: 14px;
+
+  }
+  .btn {
+    margin-top: 16px;
+    color: $color-primary-400;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+
+  }
+
+}
+.nft {
+  width: 100%;
+  max-width: 140px;
+  border-radius: 8px;
+
+}
