@@ -64,6 +64,7 @@
       border-radius: 0;
     }
 
+
     input:focus-visible {
       outline: transparent;
     }
@@ -71,5 +72,30 @@
     &:focus-within {
       outline: 1px solid $color-primary-500;
     }
+  }
+
+
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  outline: 1px solid $color-secondary-300;
+  border-radius: 6px;
+  width: 100%;
+  outline: transparent;
+
+  select {
+    padding: 0;
+    border-radius: 0;
+  }
+  select:focus-visible {
+    outline: transparent;
+  }
+
+  &:focus-within {
+    outline: 1px solid $color-primary-500;
   }
 }

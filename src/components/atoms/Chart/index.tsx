@@ -54,7 +54,6 @@ export function Chart(props: Props) {
         };
 
         setChartData(chartData);
-        console.log("data aqui ----->", chartData)
       }
     };
 
