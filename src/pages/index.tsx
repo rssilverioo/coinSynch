@@ -9,13 +9,17 @@ import styles from "./Home.module.scss";
 import Head from "next/head";
 import { NewsLetter } from "@/components/molecules/NewsLetter";
 import { Header } from "@/components/organisms/Header";
+import { useEffect, useState } from "react";
+import { getCryptos } from "@/api/cryptoApi";
 
 
 interface Props {
-  data: Cryptocoins[];
+  cryptos: Cryptocoins[];
 }
 
 export default function HomeComponent(props: Props) {
+
+
 
   return (
   <>
@@ -28,10 +32,10 @@ export default function HomeComponent(props: Props) {
 
   </Head>
     <main className={styles.main}>
-      <Header assets={props.data} />
+      <Header assets={props.cryptos} />
       <section className={styles.wave}></section>
       <AboutUs />
-      <TopCryptos blockchains={props.data} />
+      <TopCryptos cryptos={props.cryptos} />
       <NewsLetter />
       <Footer />
     </main>
@@ -40,3 +44,12 @@ export default function HomeComponent(props: Props) {
   );
 }
 
+export const getStaticProps: GetStaticProps = async () => {
+  const cryptosData = await getCryptos();
+  return {
+    props: {
+      cryptos: cryptosData
+    },
+    revalidate: 60 // 24 horas em segundos
+  };
+};

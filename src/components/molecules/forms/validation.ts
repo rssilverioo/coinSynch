@@ -1,6 +1,5 @@
 import { z } from "zod";
 
-// Must have all fields declared and registered, if not
 export const signUpSchema = z
     .object({
         name: z.string().min(1),

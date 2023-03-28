@@ -1,15 +1,17 @@
 .bg {
 	width: 100%;
+	display: flex;
+    align-items: top;
+    margin-inline: auto;
 }
 
 .page_content {
-	padding-block: 56px;
+	padding-block: 36px;
 	width: $constraint-main-col;
-	padding-inline: 8px;
 	margin-inline: auto;
 }
 
-.section {
+.quick_info_section {
 	display: grid;
 	grid-template-columns: 2fr 1fr 1fr;
 	grid-template-rows: 1fr;

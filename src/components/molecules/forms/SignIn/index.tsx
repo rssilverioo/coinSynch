@@ -7,14 +7,14 @@ import {
 } from 'react-hook-form';
 import { roboto } from '@/pages/_app'; // Using directly because it is not applying normally
 import { stylesEntry } from '@/utils/styles';
-import { Input } from '../../atoms/Input/index';
-import styles from "./styles.module.scss";
+import { Input } from '../../../atoms/Input/index';
+import styles from "../styles.module.scss";
 import { Button } from '@/components/atoms/Button';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 interface Props {
-	onNeedAccount: () => void;
+	NeedAccount: () => void;
 }
 
 export function SignInForm(props: Props) {
@@ -95,7 +95,7 @@ export function SignInForm(props: Props) {
       <Button
 				design="ghost"
 				className={styles.dont_have_an_account_btn}
-				onClick={props.onNeedAccount}
+				onClick={props.NeedAccount}
 			>
         Don’t have an account?
         <span>

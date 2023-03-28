@@ -13,21 +13,12 @@ interface Props {
 
 }
 
-
-
 export function DailyVariation(props: Props) {
   const ChangeMoney = formatNumber(2);
   const isPositive = Number(ChangeMoney) >= 0;
   const [cryptos, setCryptos] = useState(props.chartData);
 
 
-  useEffect(() => {
-    async function fetchData() {
-      const data = await getCryptos();
-      setCryptos(data);
-    }
-    fetchData();
-  }, []);
 
   return (
     <article className={styles.container}>
@@ -66,14 +57,7 @@ export function DailyVariation(props: Props) {
                 {isPositive ? `+${ChangeMoney}%` : ChangeMoney}
             </span>
               ))}
-          {/* <span
-            className={stylesEntry([
-              styles.amount,
-              isPositive ? styles.positive : styles.negative
-            ])}
-          >
-            {isPositive ? `+${ChangeMoney}%` : ChangeMoney}
-      </span> */}
+
         </div>
       </div>
       <div className={styles.chart}>

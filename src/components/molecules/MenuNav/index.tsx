@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 import styles from "./styles.module.scss";
 
 interface Props {
-  blockchains: Cryptocoins[];
+  crypto: Cryptocoins[];
   onSignInClick: () => void;
   onSignUpClick: () => void;
 }
@@ -57,7 +57,7 @@ export function NavMenu(props: Props) {
         <div className={styles.right_wrapper}>
           {isDesktop ? (
             <div className={styles.timeline_constraint}>
-              <CoinCarrousel coins={props.blockchains} />
+              <CoinCarrousel crypto={props.crypto} />
             </div>
           ) : undefined}
           <div className={styles.buttons_container}>
@@ -72,7 +72,7 @@ export function NavMenu(props: Props) {
       </nav>
       {!isDesktop ? (
         <div className={styles.timeline_constraint}>
-          <CoinCarrousel coins={props.blockchains} />
+          <CoinCarrousel crypto={props.crypto} />
         </div>
       ) : undefined}
     </div>

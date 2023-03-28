@@ -1,5 +1,4 @@
 import { useRef } from "react";
-
 import { CarrouselHero } from "@/components/molecules/Hero";
 import { Cryptocoins } from "@/services/cryptocoins";
 import { NavMenu } from "@/components/molecules/MenuNav";
@@ -30,13 +29,13 @@ export function Header(props: Props) {
   return (
    <>
       <Modal ref={modalHandlerSignIn}>
-      <SignInForm onNeedAccount={openSignUp} />
+      <SignInForm NeedAccount={openSignUp} />
       </Modal>
       <Modal ref={modalHandlerSignUp}>
-      <SignUpForm onAlreadyHaveAccount={openSignIn} />
+      <SignUpForm HaveAccount={openSignIn} />
 			</Modal>
       <NavMenu
-           blockchains={props.assets}
+           crypto={props.assets}
            onSignInClick={openSignIn}
            onSignUpClick={openSignUp}
       />

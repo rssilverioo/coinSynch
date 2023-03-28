@@ -3,17 +3,17 @@ import styles from './styles.module.scss';
 import Image from 'next/image';
 import { Button } from '@/components/atoms/Button';
 import { UnionPlus } from '@/components/SVGs/UnionPlus';
-import {  useState } from 'react';
 import { WalletTable } from '@/components/atoms/WalletTable';
 import { Cryptocoins } from '@/services/cryptocoins';
+import { WalletNot } from '@/components/atoms/WalletNot';
 
 interface Props {
 	onAddCryptoClick: () => void;
-  coinsblock: Cryptocoins[]
+	onTransferCryptoClick: () => void;
+  AddCrypto: Cryptocoins[]
 }
 
 export function Wallet(props: Props) {
-  const [cryptoValues, setCryptoValues] = useState<FormData[]>([]);
 
 
 
@@ -43,17 +43,16 @@ export function Wallet(props: Props) {
             </div>
       </header>
       <hr className={styles.hr}/>
-        <div className={styles.content}>
-                <Image
-                src="/svgs/wallet-not.svg"
-                alt=""
-                width={82}
-                height={68}
-                 />
-                 <h1>Nothing here yet</h1>
-                 <span>Add a crypto and start earning</span>
-        <WalletTable asset_id={''} name={''} amount={0} />
-        </div>
+      <section id="top-cryptos" className={styles.background}>
+        {! props.AddCrypto || props.AddCrypto.length === 0 ? <div className={styles.content}>
+            <WalletNot />
+          </div> : (
+
+            <WalletTable onTransferCryptoClick={props.onTransferCryptoClick}  cryptos={props.AddCrypto} />
+
+        )}
+
+      </section>
      </div>
     </>
   )

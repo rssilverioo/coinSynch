@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { debounce } from "lodash"; // import debounce function as api limiter
 import { getCryptos } from "@/api/cryptoApi";
 import { Cryptocoins } from "@/services/cryptocoins";
 import { Line } from 'react-chartjs-2';
@@ -38,32 +39,30 @@ export function Chart(props: Props) {
     }]
   });
 
+
+  const debouncedFetch = debounce(async () => {
+    const response = await getCryptos();
+    const labels = response.map((crypto: any) => crypto.asset_id);
+    const data = response.map((crypto: any) => crypto.price_usd);
+
+    setChartData({
+      labels: labels,
+      datasets: [{
+        data: data,
+        fill: false,
+        borderColor: '#F4CC8F',
+        backgroundColor: 'linear-gradient(to top,#F4CC8F, #FFF6E8)'
+      }]
+    });
+  }, 500); // set a time interval (in ms) you want to avoid too many requests in a short time
+
   useEffect(() => {
-    const fetchChartData = async () => {
-      const data = await getCryptos();
-      if (data && Array.isArray(data)) {
-        const chartData = {
-          labels: data?.map((item) => item.asset_id) ?? [],
-          datasets: [{
-            label: '',
-            data: data?.map((item) => item.price_usd) ?? [],
-            fill: false,
-            borderColor: '#F4CC8F',
-            backgroundColor: 'linear-gradient(to top,#F4CC8F, #FFF6E8)'
-          }]
-        };
-
-        setChartData(chartData);
-      }
-    };
-
-    fetchChartData();
+    debouncedFetch(); // removido o argumento
   }, []);
 
   return (
-  <>
-    <Line data={chartData} />
-
-  </>
+    <>
+      <Line data={chartData} />
+    </>
   );
 }

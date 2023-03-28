@@ -20,6 +20,7 @@
     "eslint-config-next": "13.2.4",
     "faker": "^6.6.6",
     "join": "^3.0.0",
+    "lodash": "^4.17.21",
     "next": "13.2.4",
     "node-path": "^0.0.3",
     "react": "18.2.0",
@@ -34,6 +35,7 @@
   },
   "devDependencies": {
     "@types/gsap": "^3.0.0",
+    "@types/lodash": "^4.14.192",
     "@types/node": "^18.15.5",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",

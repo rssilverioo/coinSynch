@@ -12,25 +12,17 @@ import { CurrencyChange } from '@/components/atoms/CurrencyChange';
 import { useEffect, useState } from 'react';
 import { getCryptos } from '@/api/cryptoApi';
 
+
 interface Props {
-  topcoins: Cryptocoins[];
+  openViewMore: boolean;
+  cryptos: Cryptocoins[]
 }
-
 export function CryptoTable(props: Props) {
-  const [cryptos, setCryptos] = useState(props.topcoins);
-
-  useEffect(() => {
-    async function fetchData() {
-      const data = await getCryptos();
-      setCryptos(data);
-    }
-    fetchData();
-  }, []);
-
 
 
   const table = useReactTable({
-    data: cryptos,
+    data: props.cryptos,
+
     columns: [
       {
 				header: "#",
@@ -85,7 +77,8 @@ export function CryptoTable(props: Props) {
   });
 
   return (
-    <table className={styles.tableTrue}>
+    <>
+      <table className={styles.tableTrue}>
     <thead>
       {table.getHeaderGroups().map((headerGroup) => (
         <tr key={headerGroup.id}>
@@ -103,7 +96,7 @@ export function CryptoTable(props: Props) {
       ))}
     </thead>
     <tbody>
-      {props.topcoins && table.getRowModel().rows?.map((row) => (
+      {props.cryptos && table.getRowModel().rows?.map((row) => (
         <tr key={row?.id}>
           {row.getVisibleCells().map((cell) => (
             <td key={cell.id}>
@@ -116,5 +109,6 @@ export function CryptoTable(props: Props) {
   </table>
 
 
+    </>
   );
 }

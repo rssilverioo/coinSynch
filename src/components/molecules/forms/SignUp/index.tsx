@@ -10,13 +10,13 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { roboto } from "@/pages/_app"; // Using directly because it is not applying normally
 import { stylesEntry } from "@/utils/styles";
-import { Input } from "../../atoms/Input";
-import styles from "./styles.module.scss";
-import { Button } from "../../atoms/Button";
-import { signUpSchema } from "./validation";
+import { Input } from "../../../atoms/Input";
+import styles from "../styles.module.scss";
+import { Button } from "../../../atoms/Button";
+import { signUpSchema } from "../validation";
 
 interface Props {
-	onAlreadyHaveAccount: () => void;
+	HaveAccount: () => void;
 }
 
 export function SignUpForm(props: Props) {
@@ -151,7 +151,7 @@ export function SignUpForm(props: Props) {
       <Button
 				design="ghost"
 				className={styles.dont_have_an_account_btn}
-				onClick={props.onAlreadyHaveAccount}
+				onClick={props.HaveAccount}
 			>
         Already have and account?
         <span>

@@ -1,38 +1,85 @@
 .container {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 }
-.btn{
-	background: $color-tertiary-700;
-}
+.holding {
+  display: flex;
+  flex-direction: column;
 
+
+
+    span {
+      font-weight: 400;
+      font-size: 14px;
+      line-height:16px;
+      color: $color-text;
+    }
+
+    h2 {
+      font-weight: 400;
+      font-size: 12px;
+      line-height:16px;
+      color: $color-primary-500;
+    }
+
+
+}
 
 .tableTrue {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-  height: 4rem;
-  transition: all 0.5s;
+	width: 100%;
+	height: 100%;
+	font-family: $font-roboto;
+	padding-top: 15px;
 
+	th {
+		text-align: left;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 16px;
+		color: $color-secondary-500;
 
-  tr:nth-child(even) {
-    background: $color-secondary-100;
-  }
-  th {
-    font-size: 14px;
-    color: $color-secondary-500;
-  }
-  td,
-  th {
-    text-align: left;
-    vertical-align: middle;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-  td {
-    height: 4rem;
-  }
+		padding: 8px 24px;
+	}
+
+	td {
+		display: flex;
+		align-items: center;
+		padding: 20px 0px;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 24px;
+		color: $color-text;
+	}
+
+	--table-grid: 44px 1fr 1fr 1fr 120px;
+
+	thead {
+		tr {
+			display: grid;
+			grid-template-columns: var(--table-grid);
+			grid-template-rows: 1fr;
+		}
+	}
+
+	tbody {
+		tr {
+			td:nth-child(1) {
+				display: grid;
+				grid-template-columns: var(--table-grid);
+				grid-template-rows: 1fr;
+
+				> div {
+					padding: 0px 24px;
+				}
+			}
+		}
+	}
+
+	tr:nth-child(even) {
+		background-color: $color-secondary-100;
+	}
 }
+
 
 
 .coin_name_symbol {
@@ -55,12 +102,54 @@
 	}
 }
 
+.buy_btn {
+	padding: 8px 28px;
+	gap: 8px;
+	width: 80px;
+	background: $color-tertiary-700;
+}
+
+
+
 
 @media (max-width: $break-point-tablet) {
-	.table {
-		tr {
-			grid-template-columns: 44px 3fr 2fr 1fr 120px;
-			grid-template-rows: 1fr;
+	.container{
+		.table {
+			--table-grid: 40px 1fr 160px 100px 120px;
 		}
 	}
+}
+
+@media (max-width: $break-point-mobile) {
+	.table {
+		width: 100%;
+		height: 100%;
+		font-family: $font-roboto;
+
+		--table-grid: 5fr 1fr;
+
+		td:nth-child(1) {
+			.row_content:nth-child(1),
+			.row_content:nth-child(3),
+			.row_content:nth-child(4) {
+				display: none;
+			}
+		}
+
+		th {
+			padding: 0px 16px;
+		}
+
+		th:nth-child(1),
+		th:nth-child(3),
+		th:nth-child(4) {
+			display: none;
+		}
+	}
+
+	.row_content {
+		padding: 0 16px;
+	}
+
+
 }
