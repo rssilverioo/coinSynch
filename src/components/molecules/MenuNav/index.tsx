@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 
 
 import styles from "./styles.module.scss";
+import { Logo } from "@/components/atoms/Logo";
 
 interface Props {
   crypto: Cryptocoins[];
@@ -39,9 +40,7 @@ export function NavMenu(props: Props) {
       <nav className={styles.wrapper}>
         <div className={styles.left_wrapper}>
           <div className={styles.logo_container}>
-            <Button design="ghost" onClick={() => {  window.location.replace(newPathNewsLetters)}}>
-              <Image src="/images/logo.png" fill alt="CoinSynch logo" />
-            </Button>
+             <Logo />
           </div>
 
           <div className={styles.links}>

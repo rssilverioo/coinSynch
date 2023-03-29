@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import Image from 'next/image';
 import styles from './styles.module.scss';
 import { Button } from '@/components/atoms/Button';
-import Link from 'next/link';
+import { Logo } from '@/components/atoms/Logo';
 
 interface Props {
   children: ReactNode;
@@ -14,14 +14,7 @@ export function LayoutDashboard(props: Props) {
       <div className={styles.nav_bg}>
         <nav className={styles.wrapper}>
           <div className={styles.left_wrapper}>
-            <Link href="/">
-              <Image
-                src="/images/logo.png"
-                alt="CoinSynch logo"
-                width={124}
-                height={21}
-              />
-            </Link>
+              <Logo />
           </div>
 
           <div className={styles.right_wrapper}>
