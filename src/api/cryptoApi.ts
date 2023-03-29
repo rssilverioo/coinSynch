@@ -4,7 +4,7 @@ import axios from 'axios';
 export const api = axios.create({
   baseURL: 'https://rest.coinapi.io/',
   headers: {
-    'X-CoinAPI-Key': '8AC201B3-EBB4-4F9A-BDA0-09EF5FF2DD54',
+    'X-CoinAPI-Key': '02BC8755-1EBE-448E-9969-9812838D8DB6',
   },
 });
 
@@ -14,9 +14,9 @@ interface Props {
 }
 
 export async function getCryptos(): Promise<Cryptocoins[]> {
-  const response = await api.get<Cryptocoins[]>('v1/assets', {
+  const response = await api.get<Cryptocoins[]>('v1/assets/BTC,ETH,LTC,XRP,DOGE,DGB,PAK,BAC,BLZ,DASH,ETC', {
     params: {
-      asset_id: 'BTC,ETH,LTC', // list of desired cryptocurrencies
+      type_is_crypto: 1, // list of desired cryptocurrencies
       limit: 10
     },
 

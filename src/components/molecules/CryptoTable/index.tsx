@@ -11,12 +11,14 @@ import { Button } from '../../atoms/Button';
 import { CurrencyChange } from '@/components/atoms/CurrencyChange';
 import { useEffect, useState } from 'react';
 import { getCryptos } from '@/api/cryptoApi';
+import axios from 'axios';
 
 
 interface Props {
   openViewMore: boolean;
   cryptos: Cryptocoins[]
 }
+
 export function CryptoTable(props: Props) {
 
 
