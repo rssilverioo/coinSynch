@@ -26,20 +26,20 @@ export function TopCryptos(props: Props) {
 // }, []);
 
 
-  const [showAll, setShowAll] = useState(false);
-	const displayedCryptos = props.cryptos && props.cryptos.slice(0, 4);
+  const [showAll, setShowAll] = useState(true);
+	const displayedCryptos = props.cryptos && props.cryptos.slice(0, 5);
 
   return (
     <section id="top-cryptos" className={styles.background}>
       <div className={styles.content}>
         <h3>Top Cryptos</h3>
-        <CryptoTable cryptos={props.cryptos} openViewMore={showAll}/>
+        <CryptoTable cryptos={showAll ? displayedCryptos : props.cryptos} />
         <Button
 					design="ghost"
 					className={styles.custom_btn}
 					onClick={() => setShowAll((prev) => !prev)}
 				>
-					{showAll ? "View less -" : "View more +"}
+					{showAll ? "View more +" : "View less -"}
 				</Button>
       </div>
     </section>

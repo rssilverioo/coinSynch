@@ -42,10 +42,7 @@ export function DailyVariation(props: Props) {
             ))}
           </div>
           {cryptos
-              ?.filter(
-                (crypto) =>
-                  crypto.asset_id === 'ETH'
-              )
+             ?.filter((crypto) => crypto.asset_id === 'ETH')
               .map((crypto) => (
                 <span
                 key={crypto.asset_id}

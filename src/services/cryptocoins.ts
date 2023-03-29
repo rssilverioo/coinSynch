@@ -1,4 +1,5 @@
 export interface Cryptocoins {
+  id_icon: string;
   amount: number;
   length: number;
   asset_id:             string;

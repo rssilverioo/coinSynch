@@ -47,8 +47,9 @@ export function AddCrypto(props: Props) {
           <option value="" disabled >Choose Crypto</option>
           {props.cryptos?.map((cryptoName) => {
             return (
-              <option value={cryptoName.name} key={cryptoName.name}>
-                {cryptoName.asset_id}
+              <option value={cryptoName.name} key={cryptoName.name} className={styles.optiontest}>
+               <h2>{cryptoName.name}</h2>
+               <span>{cryptoName.asset_id}</span>
               </option>
             );
           })}

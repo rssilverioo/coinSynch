@@ -42,8 +42,8 @@ export function Chart(props: Props) {
 
   const debouncedFetch = debounce(async () => {
     const response = await getCryptos();
-    const labels = response.map((crypto: any) => crypto.asset_id);
-    const data = response.map((crypto: any) => crypto.price_usd);
+    const labels = response?.filter((crypto) => crypto.asset_id === 'ETH').map((crypto: any) => crypto.asset_id);
+    const data = response?.filter((crypto) => crypto.asset_id === 'ETH').map((crypto: any) => crypto.price_usd);
 
     setChartData({
       labels: labels,

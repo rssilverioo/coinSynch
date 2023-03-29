@@ -6,7 +6,9 @@ export function Logo() {
   return (
     <>
         <Link href="/">
-            <Image src="/images/logo.png" fill alt="CoinSynch logo" />
+            <Image src="/images/logo.png"  alt="CoinSynch logo"
+              width={124}
+              height={21}/>
         </Link>
     </>
   )

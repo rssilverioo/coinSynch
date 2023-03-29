@@ -15,12 +15,10 @@ import axios from 'axios';
 
 
 interface Props {
-  openViewMore: boolean;
   cryptos: Cryptocoins[]
 }
 
 export function CryptoTable(props: Props) {
-
 
   const table = useReactTable({
     data: props.cryptos,
@@ -36,11 +34,13 @@ export function CryptoTable(props: Props) {
         header: 'Crypto',
         cell: (change) => {
 					const row = change.row.original;
-					const parsedCoinName = row && row.name ? row.name.toLowerCase().replace(" ", "-") : '';
+          console.log(change.row.original, '/icons/32')
+
+          const replaceHiffen = row && row.id_icon ? row.id_icon.toLowerCase().replace(/-/g, "") : '';
 					return (
 						<span className={styles.coin_name_symbol}>
 							<Image
-								src={`https://cryptologos.cc/logos/${parsedCoinName}-${row?.asset_id.toLowerCase()}-logo.svg`}
+								src={`https://s3.eu-central-1.amazonaws.com/bbxt-static-icons/type-id/png_32/${replaceHiffen}.png`}
 								width={32}
 								height={32}
 								alt={row?.name}

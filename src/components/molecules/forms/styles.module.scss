@@ -114,6 +114,8 @@
   select {
     padding: 0;
     border-radius: 0;
+
+
   }
   select:focus-visible {
     outline: transparent;
@@ -121,5 +123,15 @@
 
   &:focus-within {
     outline: 1px solid $color-primary-500;
+  }
+};
+
+.optiontest  {
+  color: red;
+  gap: 44px;
+  padding: 20px;
+
+  .h2 {
+    color: blue;
   }
 }

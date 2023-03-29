@@ -40,7 +40,7 @@ export function NavMenu(props: Props) {
       <nav className={styles.wrapper}>
         <div className={styles.left_wrapper}>
           <div className={styles.logo_container}>
-             <Logo />
+          <Logo/>
           </div>
 
           <div className={styles.links}>

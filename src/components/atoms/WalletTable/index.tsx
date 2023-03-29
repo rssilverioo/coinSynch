@@ -32,15 +32,15 @@ export function WalletTable(props: Props) {
         header: "Crypto",
         cell: (txt) => {
           const row = txt.row.original;
-          const parsedCoinName = row.name.toLowerCase().replace(" ", "-");
-          return (
-            <span className={styles.coin_name_symbol}>
-              <Image
-                src={`https://cryptologos.cc/logos/${parsedCoinName}-${row.asset_id.toLowerCase()}-logo.svg`}
-                width={32}
-                height={32}
-                alt={row.name}
-              />
+          const replaceHiffen = row && row.id_icon ? row.id_icon.toLowerCase().replace(/-/g, "") : '';
+					return (
+						<span className={styles.coin_name_symbol}>
+							<Image
+								src={`https://s3.eu-central-1.amazonaws.com/bbxt-static-icons/type-id/png_32/${replaceHiffen}.png`}
+								width={32}
+								height={32}
+								alt={row?.name}
+							/>
               <div>
                 <span>{row.name}</span>
                 <span>{row.asset_id}</span>

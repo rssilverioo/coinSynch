@@ -12,11 +12,12 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'cryptologos.cc'
+        hostname: 's3.eu-central-1.amazonaws.com'
       }
+
     ]
   },
-  
+
   sassOptions: {
     includePaths: [join('src', 'styles')],
     prependData: `@import "@/styles/variables.scss";`
