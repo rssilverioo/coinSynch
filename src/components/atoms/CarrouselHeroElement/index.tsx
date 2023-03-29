@@ -46,7 +46,7 @@ export function CarrouselHeroElement() {
     <div id="container" className={styles.container}>
             <Image
               src="/images/woman_tablet.png"
-              alt="Woman looking at tablet"
+              alt="Woman"
               width={464 + 32}
               height={499}
               className="scroll"
@@ -55,7 +55,7 @@ export function CarrouselHeroElement() {
           <div id="container-right" className={styles.containerRight}>
             <Image
               src="/images/man_cellphone.png"
-              alt="Woman looking at tablet"
+              alt="Man"
               width={464 + 32}
               height={499}
               className="scroll"

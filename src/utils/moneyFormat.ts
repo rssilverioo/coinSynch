@@ -1,6 +1,6 @@
 export function formatNumber(value: number, symbol = false): string {
 	const change = new Intl.NumberFormat("en", {
-		maximumFractionDigits: 3,
+		maximumFractionDigits: 2,
 		style: symbol ? "currency" : undefined,
 		currency: symbol ? "USD" : undefined,
 		currencyDisplay: symbol ? "symbol" : undefined,

@@ -22,11 +22,9 @@ export function CryptoTable(props: Props) {
 
   const table = useReactTable({
     data: props.cryptos,
-
     columns: [
       {
 				header: "#",
-				// cell: (change) => <span>{change.row.index >= 9 ? '' : 0 }{change.row.index +1}</span>,
 				cell: (change) => <span>{change.row.index >= 9 ? '' : 0 }{change.row.index +1}</span>,
 
 			},
@@ -55,7 +53,14 @@ export function CryptoTable(props: Props) {
       },
       {
         header: 'Price',
-        accessorFn: (row) => formatNumber(Number(row?.price_usd), true),
+        cell: (txt) => {
+          const row = txt.row.original;
+          return (
+              <div  className={styles.holding}>
+                    <span>US$ {formatNumber(Number(row.price_usd))}</span>
+              </div>
+          );
+        },
       },
       {
         header: 'Change',
