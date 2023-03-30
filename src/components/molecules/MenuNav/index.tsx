@@ -95,11 +95,23 @@ export function NavMenu(props: Props) {
         </div>
       </nav>
       {isOpen && (
-        <div className={styles.menuItems}>
-          <a href="#">Item 1</a>
-          <a href="#">Item 2</a>
-          <a href="#">Item 3</a>
-        </div>
+            <div className={styles.menuItems}>
+            <Button className={styles.link_button} onClick={() => {  window.location.replace(newPathAboutUs)}} design="ghost">
+                 About us
+            </Button>
+             <Button className={styles.link_button} onClick={() => {  window.location.replace(newPathTopCripts)}} design="ghost">
+                  Top Cryptos
+              </Button>
+              <Button className={styles.arrow_button} onClick={handleClick} design="ghost">
+              <Image
+                  src="/svgs/arrow-back.svg"
+                  width={40}
+                  height={40}
+                  alt=""
+              />
+              </Button>
+
+          </div>
       )}
 
       <div className={styles.timelineResponsive}>

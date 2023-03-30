@@ -3,9 +3,14 @@ import Image from 'next/image';
 import { useEffect } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { useWindowSize } from '@/hooks/useWindowSize';
 
 
 export function CarrouselHeroElement() {
+
+  const { width, height } = useWindowSize();
+	const isMobile = (width || 0) < 595;
+
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
@@ -43,15 +48,18 @@ export function CarrouselHeroElement() {
     }, []);
   return (
   <>
-    <div id="container" className={styles.container}>
-            <Image
-              src="/images/woman_tablet.png"
-              alt="Woman"
-              width={464 + 32}
-              height={499}
-              className="scroll"
-            />
-          </div>
+  {!isMobile ? (
+        <div id="container" className={styles.container}>
+        <Image
+          src="/images/woman_tablet.png"
+          alt="Woman"
+          width={464 + 32}
+          height={499}
+          className="scroll"
+        />
+      </div>
+  ) : undefined}
+
           <div id="container-right" className={styles.containerRight}>
             <Image
               src="/images/man_cellphone.png"

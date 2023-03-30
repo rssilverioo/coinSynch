@@ -4,3 +4,16 @@
   opacity: 0.5;
   height: 100vh;
 }
+@media (max-width: $break-point-tablet) {
+  .container{
+    width: 100%;
+    min-width: 200px;
+  }
+}
+
+@media (max-width: $break-point-mobile) {
+  .container {
+    width: 100%;
+    min-width: 200px;
+  }
+}

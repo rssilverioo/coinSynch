@@ -14,7 +14,7 @@ export function CarrouselHero(props: Props) {
 
 
   return (
-    <section id="news-letters" className={styles.background}>
+    <section  className={styles.background}>
       <div className={styles.section_container}>
         <div>
           <div className={styles.content}>
