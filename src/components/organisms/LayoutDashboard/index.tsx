@@ -3,6 +3,7 @@ import Image from 'next/image';
 import styles from './styles.module.scss';
 import { Button } from '@/components/atoms/Button';
 import { Logo } from '@/components/atoms/Logo';
+import { ChevronDown } from '@/components/SVGs/ChevronDown';
 
 interface Props {
   children: ReactNode;
@@ -27,12 +28,9 @@ export function LayoutDashboard(props: Props) {
             />
             <div>
               <span>Aulus</span>
-              <Image
-                src="/svgs/chevron.svg"
-                alt="open profile options"
-                width={8}
-                height={8}
-              />
+              <Button design="ghost">
+                <ChevronDown fill="#ACABB7" width={8} height={8} />
+              </Button>
             </div>
           </div>
         </nav>

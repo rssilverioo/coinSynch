@@ -9,40 +9,66 @@ export function AboutUs() {
   const { width, height } = useWindowSize();
 
 	const isDesktop = (width || 0) > 768;
+	const isTablet = (width || 0) > 425;
+  const isMobile = (width || 0) < 426;
 
   return (
     <section id="about-us" className={styles.background}>
       <div className={styles.section_content}>
         <div className={styles.cards_wrapper}>
-          <div className="left-card">
+          {isTablet ? (
+                <>
+                <div className="left-card">
+              <CardAboutUs
+                img="/svgs/bitcoin.svg"
+                subtitle="For your company"
+                title="Crypto Solutions"
+                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam," />
+              <CardAboutUs
+                img="/svgs/ether.svg"
+                subtitle="For your company"
+                title="Crypto Solutions"
+                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam," />
+            </div><div>
+                <CardAboutUs
+                  img="/svgs/chart.svg"
+                  subtitle="For your company"
+                  title="Crypto Solutions"
+                  text="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam," />
+                <CardAboutUs
+                  img="/svgs/laptop.svg"
+                  subtitle="For your company"
+                  title="Crypto Solutions"
+                  text="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam," />
+              </div></>
+          )  : undefined}
+        {isMobile ? (
+          <>
+            <div>
             <CardAboutUs
-              img="/svgs/bitcoin.svg"
-              subtitle="For your company"
-              title="Crypto Solutions"
-              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,"
-            />
-            <CardAboutUs
-              img="/svgs/ether.svg"
-              subtitle="For your company"
-              title="Crypto Solutions"
-              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,"
-            />
-          </div>
-          <div>
-            <CardAboutUs
-              img="/svgs/chart.svg"
-              subtitle="For your company"
-              title="Crypto Solutions"
-              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,"
+                img="/svgs/bitcoin.svg"
+                subtitle="For your company"
+                title="Crypto Solutions"
+                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam," />
+              <CardAboutUs
+                img="/svgs/ether.svg"
+                subtitle="For your company"
+                title="Crypto Solutions"
+                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam," />
+                  <CardAboutUs
+                  img="/svgs/chart.svg"
+                  subtitle="For your company"
+                  title="Crypto Solutions"
+                  text="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam," />
+                <CardAboutUs
+                  img="/svgs/laptop.svg"
+                  subtitle="For your company"
+                  title="Crypto Solutions"
+                  text="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam," />
+            </div>
+          </>
 
-            />
-            <CardAboutUs
-              img="/svgs/laptop.svg"
-              subtitle="For your company"
-              title="Crypto Solutions"
-              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,"
-            />
-          </div>
+        ) : undefined}
         </div>
         <article className={styles.main_content}>
           <header>

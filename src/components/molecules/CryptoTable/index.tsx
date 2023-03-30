@@ -9,6 +9,8 @@ import styles from './styles.module.scss';
 import { formatNumber } from '@/utils/moneyFormat';
 import { Button } from '../../atoms/Button';
 import { CurrencyChange } from '@/components/atoms/CurrencyChange';
+import { useWindowSize } from '@/hooks/useWindowSize';
+import { ChevronDown } from '@/components/SVGs/ChevronDown';
 
 
 
@@ -17,15 +19,22 @@ interface Props {
 }
 
 export function CryptoTable(props: Props) {
+  const { width, height } = useWindowSize();
+
+  const isDesktop = (width || 0) > 768;
+  const isMobile = (width || 0) < 425;
+
+
+
 
   const table = useReactTable({
     data: props.cryptos,
     columns: [
       {
-				header: "#",
-				cell: (change) => <span>{change.row.index >= 9 ? '' : 0 }{change.row.index +1}</span>,
+        header: "#",
+        cell: (change) => <span>{change.row.index >= 9 ? '' : 0 }{change.row.index +1}</span>,
+      },
 
-			},
       {
         header: 'Crypto',
         cell: (change) => {
@@ -49,6 +58,7 @@ export function CryptoTable(props: Props) {
 					);
 				},
       },
+
       {
         header: 'Price',
         cell: (txt) => {
@@ -70,13 +80,22 @@ export function CryptoTable(props: Props) {
 				),
       },
       {
-        header: 'Trade',
-        cell: (row) => (
-          <Button className={styles.btn} type="button" design="primary">
+        header: isMobile ? "Actions" : "Trade",
+        cell: (ctx) => {
+          if (isMobile) {
+            return (
+              <Button design="ghost">
+                <ChevronDown fill="#FFCD82" width={12} height={12} />
+              </Button>
+            );
+          }
+          return (
+            <Button className={styles.btn} type="button" design="primary">
             Buy
           </Button>
-        )
-      }
+          );
+        },
+      },
     ],
     getCoreRowModel: getCoreRowModel()
   });
