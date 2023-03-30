@@ -15,7 +15,6 @@ import { TransferCrypto } from "@/components/molecules/forms/TransferCrypto";
 
 interface Props {
   cryptos: Cryptocoins[];
-  amountCrypto: Cryptocoins[];
 }
 
 
@@ -78,6 +77,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       cryptos: cryptosData
     },
-    revalidate: 60 // 24 horas em segundos
+    revalidate: 60
   };
 };
