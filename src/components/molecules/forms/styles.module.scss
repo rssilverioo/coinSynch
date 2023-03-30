@@ -11,6 +11,8 @@
   line-height: 32px;
   color: $color-text;
   text-align: center;
+  font-family: $font-roboto;
+
 
   span {
     font-size: inherit;
@@ -110,10 +112,13 @@
   border-radius: 6px;
   width: 100%;
   outline: transparent;
+  font-family: $font-roboto;
+
 
   select {
     padding: 0;
     border-radius: 0;
+    font-family: $font-roboto;
 
 
   }
@@ -124,17 +129,23 @@
   &:focus-within {
     outline: 1px solid $color-primary-500;
   }
+
 };
 
-.optiontest  {
-  color: red;
-  gap: 44px;
-  padding: 20px;
 
-  .h2 {
-    color: blue;
+.option {
+  font-family: $font-roboto;
+  color: green;
+
+
+  span {
+    color: rgb(121, 113, 238) !important;
+    font-size: 12px;
   }
 }
+
+
+
 @media (max-width: $break-point-tablet) {
   .form {
     display: flex;

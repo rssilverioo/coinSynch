@@ -1,15 +1,33 @@
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import Image from 'next/image';
 import styles from './styles.module.scss';
 import { Button } from '@/components/atoms/Button';
 import { Logo } from '@/components/atoms/Logo';
 import { ChevronDown } from '@/components/SVGs/ChevronDown';
+import { LogoutSvg } from '@/components/SVGs/LogoutSvg';
+import Link from 'next/link';
+import { ChevronUp } from '@/components/SVGs/ChevronUp';
+import ReactTooltip from 'react-tooltip';
 
 interface Props {
   children: ReactNode;
 }
 
 export function LayoutDashboard(props: Props) {
+
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  function toggleDropdown() {
+    setIsOpen(!isOpen);
+  }
+
+  function handleLogout() {
+    // implement logout logic here
+  }
+
+  const [tooltipText, setTooltipText] = useState('Default tooltip text');
+
   return (
     <div className={styles.page_bg}>
       <div className={styles.nav_bg}>
@@ -28,8 +46,24 @@ export function LayoutDashboard(props: Props) {
             />
             <div>
               <span>Aulus</span>
-              <Button design="ghost">
-                <ChevronDown fill="#ACABB7" width={8} height={8} />
+              <Button design="ghost" onClick={toggleDropdown}>
+
+                {!isOpen ? (
+                <ChevronDown fill="#ACABB7"  width={8} height={8} />
+
+                )
+                 :
+                 <ChevronUp fill="#ACABB7"   width={8} height={8} />
+
+                }
+                   {isOpen && (
+                  <div className={styles.dropdownMenu}>
+                      <LogoutSvg fill="#ACABB7" width={12} height={12} />
+                     <Link href="/">
+                     <span>Logout</span>
+                     </Link>
+                  </div>
+                )}
               </Button>
             </div>
           </div>
@@ -80,3 +114,4 @@ export function LayoutDashboard(props: Props) {
     </div>
   );
 }
+

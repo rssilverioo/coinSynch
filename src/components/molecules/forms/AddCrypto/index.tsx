@@ -49,7 +49,7 @@ export function AddCrypto(props: Props) {
             return (
               <option value={cryptoName.name} key={cryptoName.name} className={styles.optiontest}>
                <h2>{cryptoName.name}</h2>
-               <span>{cryptoName.asset_id}</span>
+               <span> {cryptoName.asset_id}</span>
               </option>
             );
           })}
