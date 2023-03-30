@@ -11,6 +11,7 @@
   background: $color-white;
 
 
+
   .content {
     display: flex;
     flex-direction: column;
@@ -31,5 +32,12 @@
     p {
       font-size: 14px;
     }
+  }
+}
+@media (max-width: $break-point-tablet) {
+  .card {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
   }
 }

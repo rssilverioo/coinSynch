@@ -14,7 +14,7 @@ export function AboutUs() {
     <section id="about-us" className={styles.background}>
       <div className={styles.section_content}>
         <div className={styles.cards_wrapper}>
-          <div>
+          <div className="left-card">
             <CardAboutUs
               img="/svgs/bitcoin.svg"
               subtitle="For your company"
@@ -28,7 +28,7 @@ export function AboutUs() {
               text="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,"
             />
           </div>
-          <div className={styles.cardRight}>
+          <div>
             <CardAboutUs
               img="/svgs/chart.svg"
               subtitle="For your company"
@@ -57,8 +57,8 @@ export function AboutUs() {
 
           {isDesktop ? (
               <Button  design="custom">
-							Sign up now
-						  </Button>
+                    Sign up now
+              </Button>
 					) : undefined}
         </article>
       </div>

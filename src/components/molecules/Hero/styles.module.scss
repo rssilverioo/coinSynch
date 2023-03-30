@@ -76,41 +76,7 @@
 
 }
 
-@media (max-width: $break-point-tablet) {
-	.section_container {
-		padding-inline: 48px;
-	}
 
-	.content {
-		max-width: 320px;
-		header {
-			h1 {
-				font-weight: 700;
-				font-size: 32px;
-				line-height: 40px;
-			}
-
-			h5 {
-				font-weight: 400;
-				font-size: 16px;
-				line-height: 24px;
-			}
-		}
-	}
-
-	.custom_button {
-		max-width: 232px;
-	}
-
-	.chips {
-		gap: 24px;
-
-		> span {
-			font-size: 16px;
-			line-height: 24px;
-		}
-	}
-}
 @media (max-width: $break-point-tablet) {
   .section_container {
     padding-inline: 48px;
@@ -134,19 +100,7 @@
     }
   }
 
-  .hero_img {
-    width: 100%;
-    min-width: 200px;
-  }
-  .image {
-    width: 285px;
-    height: 280px;
-  }
-  .img {
-    width: 285px;
-    height: 280px;
-    margin-right: 450px;
-  }
+
 
   .custom_button {
     max-width: 232px;
@@ -162,80 +116,33 @@
   }
 }
 
-@media (max-width: $break-point-mobile) {
-  .section_container {
-    width: 0;
-    padding-inline: 48px;
-  }
-  .chips {
-    width: 320px;
-    margin-left: -3vh;
+@media (max-width: 425px) {
+.section_container {
+  width: 100%;
 
-    span{
-      width: 70px;
-      height: 35px;
-      padding: 5px;
-      font-size: 12px!important;
-      margin-top: -50px;
-      text-align: center;
-    }
-
-  }
+}
   .content {
-    max-width: 320px;
-
-    header {
-      h1 {
-        width: 320px;
-        font-weight: 700;
-        font-size: 20px;
-        line-height: 40px;
-        text-align: center;
-        margin-left: -70px;
-      }
-
-      h5 {
-        width: 280px;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 24px;
-        text-align: center;
-        margin-left: -50px;
-        margin-top: -20px;
-      }
-    }
-    button {
-      width: 180px;
-      font-size: 14px;
-      margin-top: -20px;
-    }
-  }
-
-  .hero_img {
+    margin-left: 10px;
     width: 100%;
-    min-width: 200px;
-  }
-  .image {
-    width: 285px;
-    height: 280px;
-  }
-  .img {
-    width: 285px;
-    height: 280px;
-    margin-right: 450px;
-  }
-
-  .custom_button {
-    max-width: 232px;
-  }
-
-  .pills {
-    gap: 24px;
-
-    > span {
-      font-size: 16px;
-      line-height: 24px;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 }
 
+@media (max-width: 375px) {
+  .section_container {
+    width: 100%;
+
+  }
+    .content {
+      margin-left: -10px;
+    }
+  }
+
+  @media (max-width: 320px) {
+      .content {
+        margin-left: -30px;
+      }
+    }

@@ -7,7 +7,7 @@ export function NewsLetter() {
   const form = useForm();
 
   return (
-    <section className={styles.background}>
+<section className={styles.background}>
       <div className={styles.content}>
         <section>
           <h4>Lorem ipsum</h4>

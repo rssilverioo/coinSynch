@@ -5,12 +5,16 @@ import { UnionArrow } from '../../SVGs/UnionArrow';
 import styles from './styles.module.scss';
 
 import { CarrouselHeroElement } from '@/components/atoms/CarrouselHeroElement';
+import { useWindowSize } from '@/hooks/useWindowSize';
 
 interface Props {
 	onSignUpClick: () => void;
 }
 
 export function CarrouselHero(props: Props) {
+  const { width, height } = useWindowSize();
+
+  const isTablet = (width || 0) > 425;
 
 
   return (
@@ -45,7 +49,9 @@ export function CarrouselHero(props: Props) {
         </div>
 
         <div>
+          {isTablet ? (
           <CarrouselHeroElement/>
+          ) : undefined}
         </div>
       </div>
     </section>

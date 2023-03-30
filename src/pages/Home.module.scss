@@ -2,13 +2,14 @@
 	position: relative;
 
 	.wave{
-		max-width: 1920px;
-		margin:auto;
+    max-width: 1920px;
+    margin: auto;
     margin-top: 44px;
-		background-size: 100% auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 		background-image: url('../../public/images/Waves.png');
 		height: 247px;
-		background-repeat: no-repeat;
 
 		mask-image: linear-gradient(
 			to bottom,
@@ -18,6 +19,6 @@
 			transparent 100%
 		);
 
-
 	}
 }
+

@@ -9,9 +9,7 @@ import styles from './styles.module.scss';
 import { formatNumber } from '@/utils/moneyFormat';
 import { Button } from '../../atoms/Button';
 import { CurrencyChange } from '@/components/atoms/CurrencyChange';
-import { useEffect, useState } from 'react';
-import { getCryptos } from '@/api/cryptoApi';
-import axios from 'axios';
+
 
 
 interface Props {
