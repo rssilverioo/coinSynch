@@ -28,12 +28,14 @@ interface Props {
   crypto: Cryptocoins[];
 }
 
+
 export function Chart(props: Props) {
   const [chartData, setChartData] = useState<any>({
-    labels: [],
+    labels: 'ETH',
     datasets: [{
       data: [],
-      fill: false,
+      fill: true,
+      borderWidth: 1,
       borderColor: '#F4CC8F',
       backgroundColor: 'linear-gradient(to top,#F4CC8F, #FFF6E8)'
     }]
@@ -42,14 +44,14 @@ export function Chart(props: Props) {
 
   const debouncedFetch = debounce(async () => {
     const response = await getCryptos();
-    const labels = response?.filter((crypto) => crypto.asset_id === 'ETH').map((crypto: any) => crypto.asset_id);
     const data = response?.filter((crypto) => crypto.asset_id === 'ETH').map((crypto: any) => crypto.price_usd);
 
     setChartData({
-      labels: labels,
+      labels: 'ETH',
       datasets: [{
         data: data,
-        fill: false,
+        fill: true,
+        borderWidth: 1,
         borderColor: '#F4CC8F',
         backgroundColor: 'linear-gradient(to top,#F4CC8F, #FFF6E8)'
       }]

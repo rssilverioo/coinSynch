@@ -26,12 +26,19 @@ export function DailyVariation(props: Props) {
         <span className={styles.card_text}>Daily Variation</span>
         <div className={styles.coin}>
           <div className={styles.symbol}>
+          {cryptos
+            ?.filter((crypto) => crypto.asset_id === 'ETH')
+            .map((crypto) => (
+
               <Image
-                      src="/images/eth.jpg"
-                      width={24}
-                      height={24}
-                      alt="Ethereum"
-                    />
+              key={crypto.asset_id}
+              src="/images/eth.jpg"
+              width={24}
+              height={24}
+              alt="Ethereum"
+            />
+            ))}
+
           {cryptos
             ?.filter((crypto) => crypto.asset_id === 'ETH')
             .map((crypto) => (
